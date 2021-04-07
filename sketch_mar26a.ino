@@ -42,5 +42,18 @@ void setup(){
     //F_pwm=16mhz/319999=50 hz
 }
 void loop(){
-
+    if(a==b)
+    {
+      bailout:
+      delay(2000);
+    }
+    for(angle = 0; angle < 190; angle = angle + 0.5)
+    {
+      OCR1B = map(angle,0,180,9000,40200);
+      delay(50);
+      if (angle >= 180)
+        {
+          angle = 0;
+          goto bailout;
+        }
     }
